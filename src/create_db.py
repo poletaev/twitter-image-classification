@@ -59,11 +59,11 @@ if __name__ == "__main__":
                            .format(args.user, args.password, args.host,
                                    args.port, args.database),
                            convert_unicode=True,
-                           pool_recycle=3600)
+                           pool_recycle=3600,
+                           pool_size=10)
 
     session = scoped_session(sessionmaker(autocommit=False,
                                           autoflush=False,
                                           bind=engine))
 
-    session.configure(bind=engine)
     init_db(engine)

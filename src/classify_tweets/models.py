@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String, DateTime
+from sqlalchemy import Column, Integer, String, DateTime, Float
 from sqlalchemy.ext.declarative import declarative_base
 
 Base = declarative_base()
@@ -11,8 +11,13 @@ class Tweets(Base):
     text = Column(String(1024))
     photo_url = Column(String(1024))
     date = Column(DateTime, nullable=True)
+    longitude = Column(Float(precision=8))
+    latitude = Column(Float(precision=8))
 
-    def __init__(self, text=None, photo_url=None, date=None):
+    def __init__(self, text=None, photo_url=None, date=None,
+                 longitude=None, latitude=None):
         self.text = text
         self.photo_url = photo_url
         self.date = date
+        self.longitude = longitude
+        self.latitude = latitude

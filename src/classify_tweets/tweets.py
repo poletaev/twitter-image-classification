@@ -25,9 +25,9 @@ class StdOutListener(StreamListener):
         """
         Callback when post is received ok
         """
-        if 'media' in status.entities:
+        if 'media' in status.entities and status.coordinates is not None:
             message = {
-                'coordinates': status.coordinates,
+                'coordinates': status.coordinates['coordinates'],
                 'media': status.entities['media'],
                 'text': status.text,
                 'time': time.strftime('%Y-%m-%d %H:%M:%S')

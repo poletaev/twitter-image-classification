@@ -33,7 +33,9 @@ def send_tweet(data):
     try:
         t = Tweets(data['text'],
                    data['media'][0]['media_url_https'],
-                   data['time'])
+                   data['time'],
+                   data['coordinates'][0],
+                   data['coordinates'][1])
         db_session.add(t)
         db_session.commit()
 
