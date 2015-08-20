@@ -2,6 +2,7 @@ from __future__ import absolute_import, print_function
 
 import argparse
 import ConfigParser
+import json
 import logging
 import os
 import time
@@ -9,6 +10,8 @@ import time
 from tweepy.streaming import StreamListener
 from tweepy import OAuthHandler
 from tweepy import Stream
+
+import tasks
 
 logging.basicConfig()
 logger = logging.getLogger('tweets_producer')
@@ -31,6 +34,8 @@ class StdOutListener(StreamListener):
 
             }
             logger.info(message['media'])
+            tasks.send_tweet.apply_async((json.dumps(message),),
+                                   queue='russir')
 
     def on_error(self, status):
         logger.error("Got error: {}".format(status))
@@ -59,7 +64,10 @@ if __name__ == '__main__':
                     "Configuration file {} doesn't exist".format(args.config))
 
     config = ConfigParser.ConfigParser()
-    config.read(args.config)
+    try:
+        config.read(args.config)
+    except ConfigParser.ParsingError as e:
+        parser.exit(1, e.message)
 
     l = StdOutListener()
     auth = OAuthHandler(config.get('twitter', 'consumer_key'),
