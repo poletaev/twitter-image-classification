@@ -46,6 +46,10 @@ def create_app(bind='development', debug=False, default_config=None,
                                    pool_recycle=3600,
                                    pool_size=10)
 
+    app.db_session = scoped_session(sessionmaker(autocommit=False,
+                                                 autoflush=False,
+                                                 bind=app.engine))
+
     # set debug
     app.debug = debug
 
