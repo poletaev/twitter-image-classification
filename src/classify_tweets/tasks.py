@@ -1,7 +1,5 @@
 #from __future__ import absolute_import
 
-import datetime
-import json
 import sys
 
 from celery.utils.log import get_task_logger
@@ -12,6 +10,7 @@ from sqlalchemy.exc import IntegrityError, ProgrammingError
 
 from db import db_session
 from models import Tweets
+from caffe_classifier.caffe_classifier import ImagenetClassifier, FailToClassify
 
 logger = get_task_logger(__name__)
 
@@ -21,6 +20,26 @@ class SqlAlchemyDbTask(Task):
     A base Task class that caches a database connection
     """
     abstract = True
+    _clf = None
+
+    def __init__(self):
+        result = self.app.conf.get('MODEL_DEF_FILE')
+        logger.info(result)
+
+    @property
+    def clf(self):
+        if self._clf is None:
+            result = self.app.conf.get('MODEL_DEF_FILE')
+            logger.info(result)
+            self._clf = ImagenetClassifier(
+                prototxt=self.app.conf.get('MODEL_DEF_FILE'),
+                caffemodel=self.app.conf.get('PRETRAINED_MODEL_FILE'),
+                mean_file=self.app.conf.get('MEAN_FILE'),
+                class_labels=self.app.conf.get('CLASS_LABELS_FILE'),
+                bet_file=self.app.conf.get('BET_FILE'),
+                gpu=self.app.conf.get('GPU_MODE'),
+                tmp_dir=self.app.conf.get('TMP_DIR'))
+        return self._clf
 
     def after_return(self, *args, **kwargs):
         db_session.remove()
@@ -29,7 +48,14 @@ class SqlAlchemyDbTask(Task):
 @task(name='tasks.send_tweet', base=SqlAlchemyDbTask, serializer='json')
 def send_tweet(data):
     logger.info("send_tweet function")
-    logger.info(data)
+    try:
+        result = send_tweet.clf.top_n_classes(data['media'][0]['media_url_https'],
+                                              top_n=5)
+        logger.info(result)
+    except FailToClassify as e:
+        logger.exception(e.message)
+        return
+
     try:
         t = Tweets(data['text'],
                    data['media'][0]['media_url_https'],
@@ -41,8 +67,8 @@ def send_tweet(data):
 
     except IntegrityError as e:
         db_session.rollback()
-        logger.debug("IntegrityError: {}".format(e.message))
+        logger.exception("IntegrityError: {}".format(e.message))
     except:
         db_session.rollback()
         e = sys.exc_info()[0]
-        logger.error("Error: %s" % e)
+        logger.exception("Error: %s" % e)
