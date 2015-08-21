@@ -11,13 +11,14 @@ def split_tweets(tweets_list):
     text = map(lambda x: x.text, tweets_list)
     photo = map(lambda x: x.photo_url, tweets_list)
     tweet = map(lambda x, y:
-                u"<img src='{}' style='width:128px;height:128px;'>"
-                u"<p>{}</p>"
+                u"<img src='{}' style='width:200px;height:200px;'>"
+                u"<p style='width: 200px;'> {}"
                 u"<ul>"
                 u"<li>Coffee</li>"
                 u"<li>Tea</li>"
                 u"<li>Milk</li>"
                 u"</ul>"
+                u"</p>"
                 .format(x, y),
                 photo, text)
     return coordinates, tweet, photo, text
