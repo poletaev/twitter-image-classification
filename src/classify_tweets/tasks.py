@@ -57,11 +57,13 @@ def send_tweet(data):
         return
 
     try:
-        t = Tweets(data['text'],
-                   data['media'][0]['media_url_https'],
-                   data['time'],
-                   data['coordinates'][0],
-                   data['coordinates'][1])
+        t = Tweets(text=data['text'],
+                   photo_url=data['media'][0]['media_url_https'],
+                   date=data['time'],
+                   longitude=data['coordinates'][0],
+                   latitude=data['coordinates'][1],
+                   classes='%'.join(result[0])
+                   )
         db_session.add(t)
         db_session.commit()
 
