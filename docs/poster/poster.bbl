@@ -1,0 +1,31 @@
+\begin{thebibliography}{1}
+
+\bibitem{microsoft_cloud2014}
+Microsoft research russia summer school ``doing research in the cloud''.
+\newblock Accessed: 2014-08-18.
+
+\bibitem{caffe}
+Yangqing Jia.
+\newblock {Caffe}: An open source convolutional architecture for fast feature
+  embedding, 2013.
+
+\bibitem{nips2012}
+Alex Krizhevsky, Ilya Sutskever, and Geoffrey~E. Hinton.
+\newblock Imagenet classification with deep convolutional neural networks.
+\newblock In F.~Pereira, C.J.C. Burges, L.~Bottou, and K.Q. Weinberger,
+  editors, {\em Advances in Neural Information Processing Systems 25}, pages
+  1097--1105. Curran Associates, Inc., 2012.
+
+\bibitem{arxiv}
+E.~{Olivetti}, S.~M. {Kia}, and P.~{Avesani}.
+\newblock {MEG Decoding Across Subjects}.
+\newblock {\em ArXiv e-prints}, April 2014.
+
+\bibitem{scikit}
+F.~Pedregosa, G.~Varoquaux, A.~Gramfort, V.~Michel, B.~Thirion, O.~Grisel,
+  M.~Blondel, P.~Prettenhofer, R.~Weiss, V.~Dubourg, J.~Vanderplas, A.~Passos,
+  D.~Cournapeau, M.~Brucher, M.~Perrot, and E.~Duchesnay.
+\newblock Scikit-learn: Machine learning in {P}ython.
+\newblock {\em Journal of Machine Learning Research}, 12:2825--2830, 2011.
+
+\end{thebibliography}
