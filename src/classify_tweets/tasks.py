@@ -49,8 +49,9 @@ class SqlAlchemyDbTask(Task):
 def send_tweet(data):
     logger.info("send_tweet function")
     try:
-        result = send_tweet.clf.top_n_classes(data['media'][0]['media_url_https'],
-                                              top_n=5)
+        result = send_tweet.clf.hedging_top_n_classes(
+            data['media'][0]['media_url_https'],
+            top_n=5)
         logger.info(result)
     except FailToClassify as e:
         logger.exception(e.message)
