@@ -20,7 +20,7 @@ def split_tweets(tweets_list):
 @google_map.route("/")
 def mapview():
 
-    t = current_app.db_session.query(Tweets).limit(100).all()
+    t = current_app.db_session.query(Tweets).limit(1000).all()
     coordinates, _, _, photo_with_classes = split_tweets(t)
     sndmap = Map(
         identifier="sndmap",
