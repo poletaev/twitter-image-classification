@@ -8,23 +8,20 @@ google_map = Blueprint('google_map', __name__, template_folder='templates')
 
 def split_tweets(tweets_list):
     coordinates = map(lambda x: (x.latitude, x.longitude), tweets_list)
-    text = map(lambda x: x.text, tweets_list)
-    #photo = map(lambda x: x.photo_url, tweets_list)
+    #text = map(lambda x: x.text, tweets_list)
     photo = map(lambda x: u"<img src='{}' style='width:200px;height:200px;'>".format(x.photo_url),
                 tweets_list)
-    src_classes = map(lambda x: x.classes.split('%'), tweets_list)
-    classes = []
-    for c in src_classes:
-        classes.append(u'<ul>' + reduce(lambda x, y: x + y, map(lambda x: '<li>' + x + '</li>', c)) + u'</ul>')
-    text_with_classes = map(lambda x, y: x + u' ' + y, photo, classes)
-    return coordinates, text, photo, text_with_classes
+    classes = map(lambda x: x.classes, tweets_list)
+    photo_with_classes = map(lambda x, y:  x + u' ' + y,
+                             photo, classes)
+    return coordinates, classes, photo, photo_with_classes
 
 
 @google_map.route("/")
 def mapview():
 
     t = current_app.db_session.query(Tweets).limit(100).all()
-    coordinates, text, photo, text_with_classes = split_tweets(t)
+    coordinates, _, _, photo_with_classes = split_tweets(t)
     sndmap = Map(
         identifier="sndmap",
         lat=54.59,
@@ -32,7 +29,7 @@ def mapview():
         style="height:100%; width:100%; top:0; left:0; position:absolute; z-index:200;",
         zoom=2,
         maptype="TERRAIN",  # "ROADMAP", "SATELLITE", "HYBRID", "TERRAIN"
-        infobox=text_with_classes,
+        infobox=photo_with_classes,
         markers={'http://maps.google.com/mapfiles/ms/icons/blue-dot.png':
                  coordinates}
     )

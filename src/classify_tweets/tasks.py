@@ -56,13 +56,19 @@ def send_tweet(data):
         logger.exception(e.message)
         return
 
+    classes = u'<ul>' + \
+              reduce(lambda x, y: x + y,
+                     map(lambda x: '<li>' + x + '</li>',
+                         result[0])) + \
+              u'</ul>'
+
     try:
         t = Tweets(text=data['text'],
                    photo_url=data['media'][0]['media_url_https'],
                    date=data['time'],
                    longitude=data['coordinates'][0],
                    latitude=data['coordinates'][1],
-                   classes='%'.join(result[0])
+                   classes=classes
                    )
         db_session.add(t)
         db_session.commit()
