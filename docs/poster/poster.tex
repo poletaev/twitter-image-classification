@@ -20,15 +20,15 @@
 
 \institute % (optional, but mostly needed)
 {
-  ^1Crystallnix, LLC, Omsk,\qquad
-  ^2Northern (Arctic) Federal University, Arkhangelsk,\qquad
+  ^1Crystallnix, LLC, Omsk,\\
+  ^2Northern (Arctic) Federal University, Arkhangelsk,\\
   ^3Seismotech, LLC, Moscow
 }
 
  % \titlegraphic{Logo}
  %% \usetheme{Basic}  % See Section 5
  %% \usetheme{Default}  % See Section 5
- \usetheme{Board}  % See Section 5
+ %% \usetheme{Simple}  % See Section 5
  \begin{document}
      \maketitle  % See Section 4.1
      %% \block{BlocktitleA}{Blocktext}  % See Section 4.2
@@ -46,13 +46,13 @@
        }
 
        \block[
-         titleoffsety=-3cm,
-         bodyoffsety=-3cm
+         %% titleoffsety=-3cm,
+         %% bodyoffsety=-3cm
        ]
-           {General scheme}{
+           {Architecture of first version}{
          \begin{tikzfigure}[]
-           \includegraphics[height=35cm]
-                           {../images/scheme}
+           \includegraphics[width=35cm]
+                           {../images/v1}
            \label{fig:desc}
            %% Figure
          \end{tikzfigure}
@@ -60,12 +60,26 @@
        }
 
        \block[
-         titleoffsety=-3cm,
-         bodyoffsety=-3cm,
-         titleoffsetx=3cm,
-         bodyoffsetx=3cm,
-         titlewidthscale=1.2,
-         bodywidthscale=1.2,
+         %% titleoffsety=-3cm,
+         %% bodyoffsety=-3cm
+       ]
+           {Architecture of second version}{
+         \begin{tikzfigure}[]
+           \includegraphics[width=35cm]
+                           {../images/v2}
+           \label{fig:desc}
+           %% Figure
+         \end{tikzfigure}
+
+       }
+
+       \block[
+         %% titleoffsety=-3cm,
+         %% bodyoffsety=-3cm,
+         %% titleoffsetx=3cm,
+         %% bodyoffsetx=3cm,
+         %% titlewidthscale=1.2,
+         %% bodywidthscale=1.2,
        ]
              {Image classification}{
                As classifier for images obtained from Twitter, deep convolutional neural network. Python library Caffe with prebuilt Caffe Reference ImageNet Model (implementation of an ImageNet model trained on ILSVRC-2012) were used.
@@ -76,7 +90,7 @@
          The number of neurons in each layer is given by 253440, 186624, 64896, 64896, 43264, 4096, 4096, 1000.~\cite{nips2012}
 
          \begin{tikzfigure}[]
-           \includegraphics[height=12cm]
+           \includegraphics[width=35cm]
                            {../images/nips2012}
            \label{fig:desc}
            %% Figure
@@ -84,53 +98,46 @@
 
        }
 
-       \column{0.5}
+       \column{0.5}{
 
        \block[
          titleoffsety=-5cm,
          bodyoffsety=-5cm,
        ]
-           {Web interface}{
+           {Web interface (first version)}{
          \begin{tikzfigure}[]
-           \includegraphics[height=26cm]
+           \includegraphics[height=13cm]
                            {../images/airplane}
-           \label{fig:desc}
-           %% Figure
+           \includegraphics[height=13cm]
+                           {../images/v1_promontory}
          \end{tikzfigure}
 
        }
 
-       \note[
-         targetoffsetx=-5cm,
-         targetoffsety=-27cm,
-         %% rotate=3,
-         %% angle=270,
-         %% radius=1cm,
-         width=.3\textwidth
-         %% width=.2\textwidth,
-         %% innersep=.4cm
+      \block[
+         titleoffsety=-5cm,
+         bodyoffsety=-5cm,
        ]
-            {
-              Demonstration version is available at the following link:
-              \\
-              \centering{
-              \textbf{\url{http://tweetonmap.azurewebsites.net/}}}\\
-              \begin{tikzfigure}[]
-                \includegraphics
-                    [height=12cm]
-                                {../images/qrcode}
-                                \label{fig:desc}
-                                %% Figure
-              \end{tikzfigure}
-            }
+       {Web interface (second version)}{
+         \begin{tikzfigure}[]
+           \includegraphics[height=13cm]
+                           {../images/v2_food}
+           \includegraphics[height=13cm]
+                           {../images/v2_castle}
+           \includegraphics[height=13cm]
+                           {../images/v2_trifle}
+         \end{tikzfigure}
+
+       }
+       }
 
        \block[
-         titlewidthscale=.8,
-         bodywidthscale=.8,
-         titleoffsety=-26cm,
-         bodyoffsety=-26cm,
-         titleoffsetx=3cm,
-         bodyoffsetx=3cm
+         %% titlewidthscale=.8,
+         %% bodywidthscale=.8,
+         %% titleoffsety=-26cm,
+         %% bodyoffsety=-26cm,
+         %% titleoffsetx=3cm,
+         %% bodyoffsetx=3cm
        ]
          {References}{
          \renewcommand{\section}[2]{}%
