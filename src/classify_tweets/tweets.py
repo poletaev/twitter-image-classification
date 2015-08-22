@@ -32,7 +32,10 @@ class StdOutListener(StreamListener):
                 'time': time.strftime('%Y-%m-%d %H:%M:%S')
             }
             logger.info(message['media'])
-            tasks.send_tweet.apply_async((message,), queue='russir')
+            try:
+                tasks.send_tweet.apply_async((message,), queue='russir')
+            except Exception as e:
+                logger.exception(e.message)
 
     def on_error(self, status):
         logger.error("Got error: {}".format(status))
