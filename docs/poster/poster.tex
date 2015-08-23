@@ -43,8 +43,8 @@
        \column{0.5}{
        \block{Overview}{
          Originally this project was built in a quite short period of time during Microsoft Research Russia Summer School ``Doing Research in the Cloud''~\cite{microsoft_cloud2014}. The main idea of this project is to collect, analyze and visualize data from social network Twitter.
-         The first version was build on Microsoft Azure platform and heavily utilises it's tools such as: Queue Service, Blob storage service, Table service, SQL Azure Database, Bing Maps API. The system was launched on three trial accounts provided by Microsoft for school participants.
-         The second version was build with using Celery, a distributed task queue -- system to process messages, while providing operations with the tools required to maintain such a system.~\cite{celery}.
+         The first version was build on Microsoft Azure platform and heavily utilises it's tools such as Queue Service, Blob storage service, Table service, SQL Azure Database, Bing Maps API. The system was launched on three trial accounts provided by Microsoft for school participants.
+         The second version was build with using Celery, a distributed task queue -- system to process messages while providing operations with the tools required to maintain such a system.~\cite{celery}.
          In both cases to use Twitter API -- subscribe and receive tweets with both image and geotag, a Python library Tweepy~\cite{tweepy} was used.
        }
 
@@ -112,11 +112,11 @@
          %% titlewidthscale=1.2,
          %% bodywidthscale=1.2,
        ]
-             {Image classification}{
-               As classifier for images obtained from Twitter, deep convolutional neural network. Python library Caffe with prebuilt Caffe Reference ImageNet Model (implementation of an ImageNet model trained on ILSVRC-2012) were used.
+       {Image classification}{
+         A deep convolutional neural network was used as the classifier for images obtained from Twitter. Python library Caffe~\cite{caffe} with prebuilt Berkeley Vision and Learning Center (BVLC) CaffeNet Model were utilized. This model is a replication of an ImageNet model~\cite{nips2012} trained on the ILSVRC-2012 data set. It was released by BVLC for unrestricted use.
 
-         Here's short overview of this model: the best validation performance during training was iteration 358,000 with validation accuracy 57.258\% and loss 1.83948.
-         This model obtains a top-1 accuracy 57.1\% and a top-5 accuracy 80.2\% on the validation set.~\cite{caffe}
+         Here is the short overview of the model: the best validation performance during training was on iteration 313,000 with validation accuracy 57.412\% and loss 1.82328.
+This model obtains a top-1 accuracy 57.4\% and a top-5 accuracy 80.4\% on the validation set.
          Max-pooling layers follow first, second, and fifth convolutional layers.
          The number of neurons in each layer is given by 253440, 186624, 64896, 64896, 43264, 4096, 4096, 1000.~\cite{nips2012}
 
