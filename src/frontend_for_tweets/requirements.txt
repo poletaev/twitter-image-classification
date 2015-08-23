@@ -1,0 +1,9 @@
+Flask
+Flask-GoogleMaps
+Flask-SQLAlchemy
+Jinja2
+MySQL-python
+SQLAlchemy
+supervisor
+tornado
+Werkzeug

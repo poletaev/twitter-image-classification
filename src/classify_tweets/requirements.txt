@@ -1,0 +1,12 @@
+celery
+librabbitmq
+MySQL-python
+numpy
+pandas
+requests
+ScientificPython
+scikit-image
+scikit-learn
+scipy
+SQLAlchemy
+tweepy
