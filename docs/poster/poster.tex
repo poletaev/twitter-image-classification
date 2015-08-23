@@ -43,7 +43,7 @@
        \column{0.5}{
        \block{Overview}{
          Originally this project was built in a quite short period of time during Microsoft Research Russia Summer School ``Doing Research in the Cloud''~\cite{microsoft_cloud2014}. The main idea of this project is to collect, analyze and visualize data from social network Twitter.
-         The first version was build on Microsoft Azure platform and heavily utilises it's tools such as: Queue Service, Blob storage service, Table service, SQL Azure Database, Bing Maps API. Parts of the system were launched on three trial accounts provided by Microsoft for school participants.
+         The first version was build on Microsoft Azure platform and heavily utilises it's tools such as: Queue Service, Blob storage service, Table service, SQL Azure Database, Bing Maps API. The system was launched on three trial accounts provided by Microsoft for school participants.
          The second version was build with using Celery, a distributed task queue -- system to process messages, while providing operations with the tools required to maintain such a system.~\cite{celery}.
          In both cases to use Twitter API -- subscribe and receive tweets with both image and geotag, a Python library Tweepy~\cite{tweepy} was used.
        }
@@ -76,6 +76,34 @@
 
        }
 
+      \block[
+         %% titleoffsety=-5cm,
+         %% bodyoffsety=-5cm,
+       ]
+       {Web interface (second version)}{
+         \begin{tikzfigure}[]
+           \includegraphics[height=13cm]
+                           {../images/v2_food}
+           \includegraphics[height=13cm]
+                           {../images/v2_castle}
+           \includegraphics[height=13cm]
+                           {../images/v2_trifle}
+         \end{tikzfigure}
+
+       }
+       }
+       \column{0.5}{
+       \block[
+         %% titleoffsety=-3cm,
+         %% bodyoffsety=-3cm
+       ]
+           {Architecture of second version}{
+         \begin{tikzfigure}[]
+           \includegraphics[width=35cm]
+                           {../images/v2}
+           \label{fig:desc}
+         \end{tikzfigure}
+       }
        \block[
          %% titleoffsety=-3cm,
          %% bodyoffsety=-3cm,
@@ -100,38 +128,6 @@
          \end{tikzfigure}
 
        }
-       }
-       \column{0.5}{
-
-
-       \block[
-         %% titleoffsety=-3cm,
-         %% bodyoffsety=-3cm
-       ]
-           {Architecture of second version}{
-         \begin{tikzfigure}[]
-           \includegraphics[width=35cm]
-                           {../images/v2}
-           \label{fig:desc}
-         \end{tikzfigure}
-       }
-
-      \block[
-         %% titleoffsety=-5cm,
-         %% bodyoffsety=-5cm,
-       ]
-       {Web interface (second version)}{
-         \begin{tikzfigure}[]
-           \includegraphics[height=13cm]
-                           {../images/v2_food}
-           \includegraphics[height=13cm]
-                           {../images/v2_castle}
-           \includegraphics[height=13cm]
-                           {../images/v2_trifle}
-         \end{tikzfigure}
-
-       }
-       }
 
        \block[
          %% titlewidthscale=.8,
@@ -147,7 +143,7 @@
          %% \bibliographystyle{plain}
          \bibliography{poster}
        }
-
+     }
      \end{columns}
 
  \end{document}
