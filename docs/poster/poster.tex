@@ -40,9 +40,12 @@
      %%     \note{Notetext}  % See Section 4.3
      %% \end{columns}
      \begin{columns}
-       \column{.5}
+       \column{0.5}{
        \block{Overview}{
-         This project was built in three days during Microsoft Research Russia Summer School ``Doing Research in the Cloud''~\cite{microsoft_cloud2014}. The idea of this project is to collect, analyze and visualize data from social network Twitter. It was build on Microsoft Azure platform and utilises most of it's features such as: queues, blob storages, azure tables.
+         Originally this project was built in a quite short period of time during Microsoft Research Russia Summer School ``Doing Research in the Cloud''~\cite{microsoft_cloud2014}. The main idea of this project is to collect, analyze and visualize data from social network Twitter.
+         The first version was build on Microsoft Azure platform and heavily utilises it's tools such as: Queue Service, Blob storage service, Table service, SQL Azure Database, Bing Maps API. Parts of the system were launched on three trial accounts provided by Microsoft for school participants.
+         The second version was build with using Celery, a distributed task queue -- system to process messages, while providing operations with the tools required to maintain such a system.~\cite{celery}.
+         In both cases to use Twitter API -- subscribe and receive tweets with both image and geotag, a Python library Tweepy~\cite{tweepy} was used.
        }
 
        \block[
@@ -63,12 +66,12 @@
          %% titleoffsety=-3cm,
          %% bodyoffsety=-3cm
        ]
-           {Architecture of second version}{
+           {Web interface (first version)}{
          \begin{tikzfigure}[]
-           \includegraphics[width=35cm]
-                           {../images/v2}
-           \label{fig:desc}
-           %% Figure
+           \includegraphics[height=13cm]
+                           {../images/airplane}
+           \includegraphics[height=13cm]
+                           {../images/v1_promontory}
          \end{tikzfigure}
 
        }
@@ -97,26 +100,25 @@
          \end{tikzfigure}
 
        }
-
+       }
        \column{0.5}{
 
-       \block[
-         titleoffsety=-5cm,
-         bodyoffsety=-5cm,
-       ]
-           {Web interface (first version)}{
-         \begin{tikzfigure}[]
-           \includegraphics[height=13cm]
-                           {../images/airplane}
-           \includegraphics[height=13cm]
-                           {../images/v1_promontory}
-         \end{tikzfigure}
 
+       \block[
+         %% titleoffsety=-3cm,
+         %% bodyoffsety=-3cm
+       ]
+           {Architecture of second version}{
+         \begin{tikzfigure}[]
+           \includegraphics[width=35cm]
+                           {../images/v2}
+           \label{fig:desc}
+         \end{tikzfigure}
        }
 
       \block[
-         titleoffsety=-5cm,
-         bodyoffsety=-5cm,
+         %% titleoffsety=-5cm,
+         %% bodyoffsety=-5cm,
        ]
        {Web interface (second version)}{
          \begin{tikzfigure}[]

@@ -1,8 +1,8 @@
 \begin{thebibliography}{1}
 
-\bibitem{microsoft_cloud2014}
-Microsoft research russia summer school ``doing research in the cloud''.
-\newblock Accessed: 2014-08-18.
+\bibitem{celery}
+Celery -- distributed task queue.
+\newblock Accessed: 2015-08-23.
 
 \bibitem{caffe}
 Yangqing Jia.
@@ -16,6 +16,10 @@ Alex Krizhevsky, Ilya Sutskever, and Geoffrey~E. Hinton.
   editors, {\em Advances in Neural Information Processing Systems 25}, pages
   1097--1105. Curran Associates, Inc., 2012.
 
+\bibitem{microsoft_cloud2014}
+Microsoft research russia summer school ``doing research in the cloud''.
+\newblock Accessed: 2014-08-18.
+
 \bibitem{arxiv}
 E.~{Olivetti}, S.~M. {Kia}, and P.~{Avesani}.
 \newblock {MEG Decoding Across Subjects}.
@@ -27,5 +31,9 @@ F.~Pedregosa, G.~Varoquaux, A.~Gramfort, V.~Michel, B.~Thirion, O.~Grisel,
   D.~Cournapeau, M.~Brucher, M.~Perrot, and E.~Duchesnay.
 \newblock Scikit-learn: Machine learning in {P}ython.
 \newblock {\em Journal of Machine Learning Research}, 12:2825--2830, 2011.
+
+\bibitem{tweepy}
+Tweepy -- python library for accessing the twitter api.
+\newblock Accessed: 2015-08-23.
 
 \end{thebibliography}
