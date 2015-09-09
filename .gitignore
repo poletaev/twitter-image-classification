@@ -1,9 +1,15 @@
 # temporarily and generated files
 *~
 *.pyc
+*.log
+*.aux
+*.out
+*.blg
 
 # IDE directories
 /**/.idea
 
 # virtual environment
 /**/venv
+
+/**/.DS_Store
