@@ -8,6 +8,8 @@ The first version was build on Microsoft Azure platform and heavily utilises it�
 
 The second version was build with using Celery, a distributed task queue – system to process messages while providing operations with the tools required to maintain such a system. In both cases to use Twitter API – subscribe and receive tweets with both image and geotag, a Python library Tweepy was used.
 
+![screenshot](docs/images/v2_castle.png "Example of Twitter image classification")
+
 ## Structure of the project
 
 * Twitter subscriber (src/classify_tweets/tweets.py)
